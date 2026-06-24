@@ -230,6 +230,21 @@ export const Slide12Vision: React.FC<SlideProps> = ({ active }) => {
 
           </div>
 
+          {/* Mobile Alternative Selector */}
+          <div className="mobile-selector-container mobile-only" style={{ marginTop: '0.5rem', width: '100%', maxWidth: '300px', zIndex: 20 }}>
+            <label className="mobile-selector-label" style={{ textAlign: 'center', display: 'block' }}>Inspect Orbiting Agent</label>
+            <select 
+              className="mobile-select-element"
+              value={hoveredAgent || ''}
+              onChange={(e) => setHoveredAgent(e.target.value || null)}
+            >
+              <option value="">-- Tap to Select Agent --</option>
+              {orbitingAgents.map(ag => (
+                <option key={ag.name} value={ag.name}>{ag.emoji} {ag.name}</option>
+              ))}
+            </select>
+          </div>
+
           {/* Tagline footer block */}
           <div style={{ textAlign: 'center', marginTop: '1rem', zIndex: 10 }}>
             <h4 style={{ fontFamily: 'var(--display-font)', fontSize: '1.2rem', color: 'var(--text-primary)' }}>

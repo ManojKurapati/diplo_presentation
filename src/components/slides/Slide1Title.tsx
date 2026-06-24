@@ -39,7 +39,7 @@ export const Slide1Title: React.FC<SlideProps> = ({ active }) => {
 
       {/* Floating Diplomatic Rings */}
       <div 
-        className="animate-spin-slow"
+        className="animate-spin-slow hide-on-mobile"
         style={{
           width: '560px',
           height: '560px',
@@ -52,7 +52,7 @@ export const Slide1Title: React.FC<SlideProps> = ({ active }) => {
         }}
       />
       <div 
-        className="animate-spin-slow"
+        className="animate-spin-slow hide-on-mobile"
         style={{
           width: '400px',
           height: '400px',
@@ -83,7 +83,7 @@ export const Slide1Title: React.FC<SlideProps> = ({ active }) => {
         className="animate-glow"
         style={{
           fontFamily: 'var(--display-font)',
-          fontSize: '8.5rem',
+          fontSize: 'var(--fs-title-main)',
           fontWeight: 800,
           color: 'var(--text-primary)',
           letterSpacing: '-0.03em',
@@ -98,7 +98,7 @@ export const Slide1Title: React.FC<SlideProps> = ({ active }) => {
       <p 
         style={{
           fontFamily: 'var(--serif-font)',
-          fontSize: '2.5rem',
+          fontSize: 'var(--fs-subtitle)',
           fontStyle: 'italic',
           color: 'var(--text-secondary)',
           maxWidth: '1200px',
@@ -110,16 +110,7 @@ export const Slide1Title: React.FC<SlideProps> = ({ active }) => {
       </p>
 
       {/* Columns describing Core Strengths */}
-      <div 
-        style={{
-          display: 'flex',
-          gap: '3rem',
-          marginTop: '2rem',
-          justifyContent: 'center',
-          maxWidth: '1000px',
-          width: '100%',
-        }}
-      >
+      <div className="strengths-container">
         {[
           { icon: <Layers size={24} />, title: "Institutional Memory", desc: "Consolidates decades of complex treaties, records, and protocols into an active fabric." },
           { icon: <Brain size={24} />, title: "Intelligence", desc: "Real-time updates, cross-lingual monitoring, and entity extraction to filter noise." },

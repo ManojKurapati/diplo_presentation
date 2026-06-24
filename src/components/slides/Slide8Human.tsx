@@ -105,18 +105,18 @@ export const Slide8Human: React.FC<SlideProps> = ({ active }) => {
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '1.2rem' }}>
                   Please verify the automated treaty citations. To finalize this draft and export to the State Department registry, authorize below:
                 </p>
-                <div style={{ display: 'flex', gap: '0.8rem' }}>
+                <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
                   <button 
                     className="nav-btn" 
                     onClick={() => setApprovedState('APPROVED')} 
-                    style={{ flex: 1, background: 'var(--success)', color: '#fff', border: 'none', justifyContent: 'center' }}
+                    style={{ flex: '1 1 auto', background: 'var(--success)', color: '#fff', border: 'none', justifyContent: 'center', minWidth: '130px' }}
                   >
                     <Check size={16} /> Approve & Sign
                   </button>
                   <button 
                     className="nav-btn" 
                     onClick={() => setApprovedState('REJECTED')} 
-                    style={{ flex: 1, background: 'var(--btn-bg)', border: '1px solid var(--danger)', color: 'var(--danger)', justifyContent: 'center' }}
+                    style={{ flex: '1 1 auto', background: 'var(--btn-bg)', border: '1px solid var(--danger)', color: 'var(--danger)', justifyContent: 'center', minWidth: '130px' }}
                   >
                     <ShieldAlert size={16} /> Flag Deviations
                   </button>
@@ -142,7 +142,7 @@ export const Slide8Human: React.FC<SlideProps> = ({ active }) => {
             <h4 style={{ fontSize: '1rem', fontFamily: 'var(--display-font)', marginBottom: '0.8rem' }}>
               Guiding Principles
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+            <div className="sub-grid-2" style={{ gap: '0.8rem' }}>
               {principles.map((pr, idx) => (
                 <div 
                   key={idx} 

@@ -114,6 +114,8 @@ export const Slide11Architecture: React.FC<SlideProps> = ({ active }) => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '0.4rem',
                     boxShadow: isSelected ? '0 4px 15px var(--accent-glow)' : 'none',
                     transform: isSelected ? 'scale(1.03)' : 'scale(1)',
                     transition: 'all 0.3s ease-in-out'

@@ -214,6 +214,24 @@ export const Slide6Ecosystem: React.FC<SlideProps> = ({ active }) => {
         {/* Right Side: Agent Inspector */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', justifyContent: 'center' }}>
           
+          {/* Mobile Alternative Selector */}
+          <div className="mobile-selector-container mobile-only">
+            <label className="mobile-selector-label">Select Agent Node</label>
+            <select 
+              className="mobile-select-element"
+              value={selectedAgent}
+              onChange={(e) => setSelectedAgent(e.target.value)}
+            >
+              <option value="monitoring">👁️ Monitoring Agent</option>
+              <option value="treaty">📜 Treaty Agent</option>
+              <option value="clause">⚖️ Clause Agent</option>
+              <option value="negotiation">🤝 Negotiation Agent</option>
+              <option value="scenario">🔮 Scenario Agent</option>
+              <option value="translation">🌍 Translation Agent</option>
+              <option value="redteam">🛡️ Red-Team Agent</option>
+            </select>
+          </div>
+
           <div className="glass-card" style={{ padding: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
               <div 
@@ -246,7 +264,7 @@ export const Slide6Ecosystem: React.FC<SlideProps> = ({ active }) => {
             </p>
 
             {/* Inputs & Outputs */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.2rem', borderTop: '1px solid var(--card-border)', paddingTop: '1rem' }}>
+            <div className="sub-grid-2" style={{ marginBottom: '1.2rem', borderTop: '1px solid var(--card-border)', paddingTop: '1rem' }}>
               <div>
                 <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase' }}>Subscribed Inputs</div>
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-primary)', marginTop: '0.2rem' }}>{currentAgent.input}</div>

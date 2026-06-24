@@ -238,34 +238,41 @@ export const Slide2Problem: React.FC<SlideProps> = ({ active }) => {
             </span>
           </div>
 
-          {/* Falling Docs Container */}
-          <div style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, pointerEvents: 'none' }}>
-            {docs.map((doc) => (
-              <div
-                key={doc.id}
-                style={{
-                  position: 'absolute',
-                  left: `${doc.x}%`,
-                  top: `${doc.y}%`,
-                  fontSize: '1.5rem',
-                  opacity: doc.y > 70 ? 0.3 : 1,
-                  transform: 'translate(-50%, -50%)',
-                  transition: 'opacity 0.2s',
-                }}
-              >
-                {doc.emoji}
-              </div>
-            ))}
-          </div>
-
-          {/* Funnel Overlay */}
-          <svg style={{ position: 'absolute', width: '100%', height: '100%', pointerEvents: 'none', zIndex: 5, top: 0, left: 0 }}>
+          {/* Funnel Overlay & Animated Particles scaled using viewBox */}
+          <svg 
+            viewBox="0 0 960 680" 
+            style={{ 
+              position: 'absolute', 
+              width: '100%', 
+              height: '100%', 
+              pointerEvents: 'none', 
+              zIndex: 5, 
+              top: 0, 
+              left: 0 
+            }}
+          >
             {/* Upper Funnel Boundaries */}
             <path d="M 20 80 Q 250 180 380 480" stroke="var(--card-border)" strokeWidth="1" fill="none" opacity="0.3" />
             <path d="M 940 80 Q 710 180 580 480" stroke="var(--card-border)" strokeWidth="1" fill="none" opacity="0.3" />
             
             {/* Funnel neck brackets */}
             <path d="M 380 480 L 380 620 L 410 650 L 550 650 L 580 620 L 580 480 Z" stroke="var(--card-border)" strokeWidth="2.5" fill="rgba(255, 255, 255, 0.02)" />
+
+            {/* Falling Docs - mapped to 960x680 coordinate space */}
+            {docs.map((doc) => (
+              <text
+                key={doc.id}
+                x={doc.x * 9.6}
+                y={doc.y * 6.8}
+                fontSize="24"
+                textAnchor="middle"
+                alignmentBaseline="middle"
+                opacity={doc.y > 70 ? 0.3 : 1}
+                style={{ transition: 'opacity 0.2s', fill: 'var(--text-primary)' }}
+              >
+                {doc.emoji}
+              </text>
+            ))}
           </svg>
 
           {/* Funnel Neck Box labels */}

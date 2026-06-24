@@ -235,6 +235,25 @@ export const Slide3WhatIs: React.FC<SlideProps> = ({ active }) => {
         {/* Right Side: Selected Node Feature Explanations */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', justifyContent: 'center' }}>
           
+          {/* Mobile Alternative Selector */}
+          <div className="mobile-selector-container mobile-only">
+            <label className="mobile-selector-label">Select Agent / Entity Node</label>
+            <select 
+              className="mobile-select-element"
+              value={selectedAgent}
+              onChange={(e) => setSelectedAgent(e.target.value)}
+            >
+              <option value="human">👤 Human Diplomat</option>
+              <option value="supervisor">🤖 Agent Supervisor</option>
+              <option value="monitoring">👁️ Monitoring Agent</option>
+              <option value="treaty">📜 Treaty Agent</option>
+              <option value="clause">⚖️ Clause Agent</option>
+              <option value="scenario">🔮 Scenario Agent</option>
+              <option value="translation">🌍 Translation Agent</option>
+              <option value="redteam">🛡️ Red-Team Agent</option>
+            </select>
+          </div>
+          
           <div className="glass-card" style={{ padding: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
               <div 

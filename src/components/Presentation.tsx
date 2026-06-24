@@ -55,6 +55,12 @@ export const Presentation: React.FC = () => {
       const targetW = 1920;
       const targetH = 1080;
 
+      const isMobile = window.innerWidth <= 1024 || window.innerHeight > window.innerWidth;
+      if (isMobile) {
+        wrapper.style.transform = '';
+        return;
+      }
+
       const scaleX = w / targetW;
       const scaleY = h / targetH;
       const scale = Math.min(scaleX, scaleY);

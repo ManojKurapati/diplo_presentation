@@ -67,10 +67,11 @@ export const Slide10Security: React.FC<SlideProps> = ({ active }) => {
           }}
         >
           {/* Toggle Switches */}
-          <div style={{ display: 'flex', gap: '0.5rem', zIndex: 10 }}>
+          <div style={{ display: 'flex', gap: '0.5rem', zIndex: 10, width: '100%', maxWidth: '380px' }}>
             <button
               onClick={() => setDeployMode('cloud')}
               style={{
+                flex: 1,
                 padding: '0.5rem 1rem',
                 fontSize: '0.8rem',
                 borderRadius: '8px 0 0 8px',
@@ -87,6 +88,7 @@ export const Slide10Security: React.FC<SlideProps> = ({ active }) => {
             <button
               onClick={() => setDeployMode('airgap')}
               style={{
+                flex: 1,
                 padding: '0.5rem 1rem',
                 fontSize: '0.8rem',
                 borderRadius: '0 8px 8px 0',
@@ -227,7 +229,9 @@ export const Slide10Security: React.FC<SlideProps> = ({ active }) => {
                     border: '1px solid var(--card-border)',
                     background: activeDetail === sec.id ? 'var(--btn-hover)' : 'rgba(255, 255, 255, 0.01)',
                     cursor: 'pointer',
-                    transition: 'all var(--transition-fast)'
+                    transition: 'all var(--transition-fast)',
+                    flexWrap: 'wrap',
+                    gap: '0.4rem'
                   }}
                   className="interactive-source-item"
                 >

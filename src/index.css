@@ -7,6 +7,15 @@
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Responsive Font Sizes */
+  --fs-title-main: 8.5rem;
+  --fs-title-slide: 4.2rem;
+  --fs-subtitle: 1.85rem;
+  --fs-body: 1.15rem;
+  --fs-h3: 1.85rem;
+  --fs-h4: 1.35rem;
+  --fs-p: 1.15rem;
 }
 
 /* 1. Midnight & Gold (Default Theme) */
@@ -620,6 +629,16 @@ svg g:hover rect {
    MOBILE & TABLET RESPONSIVENESS OVERRIDES
    ========================================================================== */
 @media (max-width: 1024px) or (orientation: portrait) {
+  :root {
+    --fs-title-main: clamp(2.5rem, 10vw, 4.5rem);
+    --fs-title-slide: 2.2rem;
+    --fs-subtitle: 1.15rem;
+    --fs-body: 0.95rem;
+    --fs-h3: 1.4rem;
+    --fs-h4: 1.1rem;
+    --fs-p: 0.95rem;
+  }
+
   /* Allow the page container to handle vertical scrolling */
   .presentation-container {
     overflow-y: auto !important;
@@ -653,14 +672,14 @@ svg g:hover rect {
 
   /* Make slide titles mobile-proportional */
   .slide-title {
-    font-size: 2.2rem !important;
+    font-size: var(--fs-title-slide) !important;
     line-height: 1.2 !important;
     flex-wrap: wrap !important;
     margin-bottom: 0.4rem !important;
   }
 
   .slide-subtitle {
-    font-size: 1.15rem !important;
+    font-size: var(--fs-subtitle) !important;
     margin-bottom: 1.2rem !important;
   }
 
@@ -752,6 +771,138 @@ svg g:hover rect {
     width: 45% !important;
     margin: 2.5% !important;
     padding-bottom: 51.75% !important;
+  }
+}
+
+/* Responsive Helper Classes */
+.hide-on-mobile {
+  display: block;
+}
+
+@media (max-width: 1024px) or (orientation: portrait) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) and (orientation: landscape) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Strengths Container */
+.strengths-container {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  justify-content: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) or (orientation: portrait) {
+  .strengths-container {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* Mobile interactive selector drop down and tab lists */
+.mobile-selector-container {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mobile-selector-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--display-font);
+}
+
+.mobile-select-element {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: var(--display-font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+  transition: all var(--transition-fast);
+}
+
+.mobile-select-element:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.mobile-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* hide scrollbars */
+}
+.mobile-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-tab-btn {
+  padding: 0.5rem 1rem;
+  background: var(--btn-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-family: var(--display-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-tab-btn.active {
+  background: var(--accent);
+  border-color: #fff;
+  color: #fff;
+}
+
+.sub-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 1024px) or (orientation: portrait) {
+  .sub-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.console-card {
+  max-height: 250px;
+}
+@media (max-width: 1024px) or (orientation: portrait) {
+  .console-card {
+    max-height: none !important;
   }
 }
 

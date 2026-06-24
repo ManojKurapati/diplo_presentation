@@ -184,7 +184,7 @@ export const Slide4Acquisition: React.FC<SlideProps> = ({ active }) => {
           </h3>
 
           {/* Pipeline flow steps graphic */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', flexWrap: 'wrap', gap: '0.8rem' }}>
             {[
               { label: 'Crawl', icon: <Network size={16} /> },
               { label: 'OCR Extraction', icon: <Cpu size={16} /> },
@@ -192,7 +192,7 @@ export const Slide4Acquisition: React.FC<SlideProps> = ({ active }) => {
               { label: 'Graph Ingest', icon: <Database size={16} /> }
             ].map((step, idx) => (
               <React.Fragment key={idx}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem', flex: '1 1 auto', minWidth: '70px' }}>
                   <div style={{
                     width: '36px', height: '36px', borderRadius: '50%', background: 'var(--btn-bg)', border: '1px solid var(--card-border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)'
@@ -201,7 +201,7 @@ export const Slide4Acquisition: React.FC<SlideProps> = ({ active }) => {
                   </div>
                   <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--text-secondary)' }}>{step.label}</span>
                 </div>
-                {idx < 3 && <ArrowRight size={14} style={{ color: 'var(--card-border)', marginTop: '-15px' }} />}
+                {idx < 3 && <ArrowRight size={14} className="hide-on-mobile" style={{ color: 'var(--card-border)', marginTop: '-15px' }} />}
               </React.Fragment>
             ))}
           </div>

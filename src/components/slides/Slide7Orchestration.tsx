@@ -247,7 +247,7 @@ export const Slide7Orchestration: React.FC<SlideProps> = ({ active }) => {
           </div>
 
           {/* Real-time system logs console */}
-          <div className="glass-card" style={{ padding: '1.5rem', flex: 1, maxHeight: '250px', display: 'flex', flexDirection: 'column' }}>
+          <div className="glass-card console-card" style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--card-border)', paddingBottom: '0.4rem', marginBottom: '0.8rem' }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>Orchestration Logs</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Cycle status: {step > 0 ? `${Math.round((step/4)*100)}%` : 'Idle'}</span>
@@ -275,15 +275,15 @@ export const Slide7Orchestration: React.FC<SlideProps> = ({ active }) => {
           </div>
 
           {/* Action triggers */}
-          <div style={{ display: 'flex', gap: '0.8rem' }}>
+          <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
             {step === 0 || step === 4 ? (
-              <button className="nav-btn" onClick={runCycle} style={{ flex: 1, justifyContent: 'center', background: 'var(--accent)', color: '#fff' }}>
+              <button className="nav-btn" onClick={runCycle} style={{ flex: '1 1 auto', justifyContent: 'center', background: 'var(--accent)', color: '#fff', minWidth: '180px' }}>
                 <Play size={16} /> Run Orchestration Cycle
               </button>
             ) : (
               <div 
                 style={{ 
-                  flex: 1, 
+                  flex: '1 1 auto', 
                   justifyContent: 'center', 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -293,12 +293,14 @@ export const Slide7Orchestration: React.FC<SlideProps> = ({ active }) => {
                   color: 'var(--text-secondary)',
                   borderRadius: '12px',
                   fontSize: '0.9rem',
+                  minHeight: '42px',
+                  minWidth: '180px'
                 }}
               >
                 <Cpu size={16} className="animate-spin-slow" /> Running agents... please wait
               </div>
             )}
-            <button className="nav-btn" onClick={resetCycle} disabled={step === 0}>
+            <button className="nav-btn" onClick={resetCycle} disabled={step === 0} style={{ flex: '1 1 auto', justifyContent: 'center' }}>
               <RotateCcw size={16} /> Reset
             </button>
           </div>

@@ -210,7 +210,7 @@ export const Slide9UX: React.FC<SlideProps> = ({ active }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', justifyContent: 'center' }}>
           
           {/* Agent workspace status */}
-          <div className="glass-card" style={{ padding: '1.5rem', flex: 1, maxHeight: '250px', display: 'flex', flexDirection: 'column' }}>
+          <div className="glass-card console-card" style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--card-border)', paddingBottom: '0.4rem', marginBottom: '0.8rem' }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <Cpu size={14} /> Agent Workspace Logs

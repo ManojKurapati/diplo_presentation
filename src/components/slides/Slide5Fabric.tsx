@@ -91,7 +91,7 @@ export const Slide5Fabric: React.FC<SlideProps> = ({ active }) => {
           }}
         >
           {/* Overlay DB layers indicator */}
-          <div style={{ position: 'absolute', top: '1.2rem', left: '1.2rem', display: 'flex', gap: '0.5rem', zIndex: 10 }}>
+          <div style={{ position: 'absolute', top: '1.2rem', left: '1.2rem', display: 'flex', flexWrap: 'wrap', gap: '0.4rem', zIndex: 10 }}>
             {['all', 'vector', 'graph', 'metadata'].map((layer) => (
               <button
                 key={layer}
@@ -225,6 +225,25 @@ export const Slide5Fabric: React.FC<SlideProps> = ({ active }) => {
 
         {/* Right: Technical Database breakdown and Info box */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', justifyContent: 'center' }}>
+          
+          {/* Mobile Alternative Selector */}
+          <div className="mobile-selector-container mobile-only">
+            <label className="mobile-selector-label">Select Geopolitical Entity / Pact</label>
+            <select 
+              className="mobile-select-element"
+              value={selectedNode}
+              onChange={(e) => handleNodeClick(e.target.value)}
+            >
+              <option value="USA">🇺🇸 United States</option>
+              <option value="EU">🇪🇺 European Union</option>
+              <option value="JPN">🇯🇵 Japan</option>
+              <option value="CHN">🇨🇳 China</option>
+              <option value="IND">🇮🇳 India</option>
+              <option value="STA">📜 Semiconductor Alliance</option>
+              <option value="DPA">📜 Digital Trade Accord</option>
+              <option value="GCT">📜 Green Tech Treaty</option>
+            </select>
+          </div>
           
           {/* Selected entity detail */}
           {selectedNodeData && (
